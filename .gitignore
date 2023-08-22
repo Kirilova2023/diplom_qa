@@ -1,0 +1,12 @@
+Thumbs.db*
+.DS_Store*
+node_modules
+.idea
+target
+*.iml
+settings.gradle
+gradlew.bat
+.gradle
+build
+.allure
+

@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.8.1'
+    id "com.github.johnrengelman.processes" version "0.5.0"
+}
+
+apply plugin: "com.github.johnrengelman.processes"
+import com.github.jengelman.gradle.plugins.processes.tasks.Fork
+
+
+group 'ru.netology'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+allure {
+    autoconfigure = true
+    version='2.13.0'
+    useJUnit5 {
+        version='2.13.0'
+    }
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.1'
+    testImplementation 'com.codeborne:selenide:5.3.1'
+    testImplementation 'io.qameta.allure:allure-selenide:2.13.0'
+    testImplementation 'mysql:mysql-connector-java:8.0.18'
+    testImplementation 'org.postgresql:postgresql:42.6.0'
+    testImplementation 'commons-dbutils:commons-dbutils:1.7'
+}
+
+// Start the gate-sim http-server
+task startServer(dependsOn: 'compileTestJava', type: Fork) {
+
+    workingDir project.projectDir.toString();
+
+    String gateSimPath = "${workingDir}\\gate-simulator";
+
+    // node.exe location is resolved from %PATH%
+    commandLine  "npm", gateSimPath, "start"
+}
+
+
+// Run the tests
+test {
+    description 'Runs All Functional Tests'
+    useJUnitPlatform()
+    systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+    ///Измените настройки подключения здесь
+    /*systemProperty 'db.url', System.getProperty('db.url','jdbc:postgresql://localhost:5432/app')
+    systemProperty 'db.user', System.getProperty('db.user', 'postgres')
+    systemProperty 'db.pass', System.getProperty('db.pass', '1')*/
+    systemProperty 'db.url', System.getProperty('db.url','jdbc:mysql://localhost:3306/app?serverTimezone=UTC')
+    systemProperty 'db.user', System.getProperty('db.user', 'root')
+    systemProperty 'db.pass', System.getProperty('db.pass', '1234')
+    systemProperty 'app.url', System.getProperty('app.url', 'http://localhost:8080')
+}
+
