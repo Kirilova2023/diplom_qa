@@ -4,15 +4,15 @@
 
 **План автоматизации**
 
-[plan.md](https://github.com/Kirilova2023/diplom/blob/master/documents/plan.md)
+[plan.md](https://github.com/Kirilova2023/diplom_qa/blob/master/documents/plan.md)
 
 **Отчёт по тестированию**
 
-[report.md](https://github.com/Kirilova2023/diplom/blob/master/documents/report.md)
+[report.md](https://github.com/Kirilova2023/diplom_qa/blob/master/documents/report.md)
 
 **Общий итог автоматизированного тестирования**
 
-[summary.md](https://github.com/Kirilova2023/diplom/blob/master/documents/summary.md)
+[summary.md](https://github.com/Kirilova2023/diplom_qa/blob/master/documents/summary.md)
 
 ## Запуск авто-тестов
 Для запуска необходимы следующие инструменты:

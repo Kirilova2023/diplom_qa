@@ -2,7 +2,7 @@ _План автоматизации тестирования web-приложе
 _Приложение предлагает приобретение тура по определённой цене, оплата осуществляется банковской картой, либо 
 выдается кредит по данным банковской карты ._
 
-![](https://github.com/Kirilova2023/diplom/blob/master/documents/Screenshoots/Main.png)
+![](https://github.com/Kirilova2023/diplom_qa/blob/master/documents/Screenshoots/Main.png)
 
 #### Перечень автоматизируемых сценариев.
 ##### Тестирование UI.
@@ -48,7 +48,7 @@ _Отправить заявку на покупку тура, с оплатой
 5. Оценить результат.
    Должно появиться уведомление:
 
-![success result](https://github.com/Kirilova2023/diplom/blob/master/documents/Screenshoots/Operation_OK.png)
+![success result](https://github.com/Kirilova2023/diplom_qa/blob/master/documents/Screenshoots/Operation_OK.png)
 ___
 _Сценарий 2._  
 _Отправить заявку на покупку тура, с оплатой банковской картой с полями заполненными согласно требованиям
@@ -66,7 +66,7 @@ _Отправить заявку на покупку тура, с оплатой
 5. Оценить результат.
    Должно появиться уведомление:
 
-![success result](https://github.com/Kirilova2023/diplom/blob/master/documents/Screenshoots/Operation_OK.png)
+![success result](https://github.com/Kirilova2023/diplom_qa/blob/master/documents/Screenshoots/Operation_OK.png)
 ___
 _Сценарий 3._  
 _Отправить заявку на покупку тура, с оплатой банковской картой с полями заполненными согласно требованиям
@@ -83,7 +83,7 @@ _Отправить заявку на покупку тура, с оплатой
 5. Оценить результат.
    Должно появиться уведомление:
 
-![success result](https://github.com/Kirilova2023/diplom/blob/master/documents/Screenshoots/Operation_OK.png)
+![success result](https://github.com/Kirilova2023/diplom_qa/blob/master/documents/Screenshoots/Operation_OK.png)
 
 _Сценарий 4._  
 _Отправить заявку на покупку тура, с оплатой банковской картой с полями заполненными согласно требованиям
@@ -100,7 +100,7 @@ _Отправить заявку на покупку тура, с оплатой
 5. Оценить результат.
    Должно появиться уведомление:
 
-![error result](https://github.com/Kirilova2023/diplom/blob/master/documents/Screenshoots/Operation_Fail.png)
+![error result](https://github.com/Kirilova2023/diplom_qa/blob/master/documents/Screenshoots/Operation_Fail.png)
 
 ___
 _Сценарий 5._  
@@ -118,7 +118,7 @@ _Отправить заявку на покупку тура, с оплатой
 5. Оценить результат.
    Должно появиться уведомление:
 
-![success result](https://github.com/Kirilova2023/diplom/blob/master/documents/Screenshoots/Operation_OK.png)
+![success result](https://github.com/Kirilova2023/diplom_qa/blob/master/documents/Screenshoots/Operation_OK.png)
 
 ___
 Все сценарии протестировать также на вкладке "Купить в кредит".
@@ -207,7 +207,7 @@ _Отправить заявку на покупку тура, с оплатой
 5. Оценить результат.
    Должно появиться уведомление с ошибкой:
 
-![error result](https://github.com/Kirilova2023/diplom/blob/master/documents/Screenshoots/Operation_Fail.png)
+![error result](https://github.com/Kirilova2023/diplom_qa/blob/master/documents/Screenshoots/Operation_Fail.png)
 
 ___
 _Сценарий 6._  

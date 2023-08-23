@@ -25,12 +25,12 @@
 #### Отчеты по результатам тестирования:
 
 Отчет по результатам тестирования
-[Allure](https://github.com/Kirilova2023/diplom/blob/master/documents/allure-report.zip)
+[Allure](https://github.com/Kirilova2023/diplom_qa/blob/master/documents/allure-report.zip)
 
 Отчет по результатам тестирования
-[Gradle](https://github.com/Kirilova2023/diplom/blob/master/documents/gradle_tests.zip)
+[Gradle](https://github.com/Kirilova2023/diplom_qa/blob/master/documents/gradle_tests.zip)
 
 #### Общие рекомендации
 
-Рекомендуется исправить ошибки описанные в [Issues](https://github.com/Kirilova2023/diplom/issues).
+Рекомендуется исправить ошибки описанные в [Issues](https://github.com/Kirilova2023/diplom_qa/issues).
 Улучшить интерфейс UI в части исправления орфографической ошибки в названии курорта, подсветки кнопок соответствующих выбранному способу оплаты.
