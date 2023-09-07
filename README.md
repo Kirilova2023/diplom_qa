@@ -15,6 +15,7 @@
 [summary.md](https://github.com/Kirilova2023/diplom_qa/blob/master/documents/summary.md)
 
 **Скриншот Allure**
+
 [!AllureScreen](/documents/Screenshoots/allure_screenshot.png)
 
 ## Запуск авто-тестов
