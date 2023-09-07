@@ -19,9 +19,6 @@ import java.sql.SQLException;
 
 public class TourAppDBTests {
 
-    public TourAppDBTests() throws SQLException{
-    }
-
     @Test
     //Действительная карта - покупка по карте - сумма
     public void Scenario1_Card_Sum() {
