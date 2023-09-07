@@ -14,7 +14,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Number = "";
+        ci.number = "";
 
         cp.SetupCardData(ci);
         //act
@@ -31,7 +31,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Number = "";
+        ci.number = "";
 
         cp.SetupCardData(ci);
         //act
@@ -48,7 +48,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.CVV = "";
+        ci.cvv = "";
 
         cp.SetupCardData(ci);
         //act
@@ -65,7 +65,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.CVV = "";
+        ci.cvv = "";
 
         cp.SetupCardData(ci);
         //act
@@ -82,7 +82,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Month = "";
+        ci.month = "";
 
         cp.SetupCardData(ci);
         //act
@@ -99,7 +99,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Month = "";
+        ci.month = "";
 
         cp.SetupCardData(ci);
         //act
@@ -116,7 +116,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Year = "";
+        ci.year = "";
 
         cp.SetupCardData(ci);
         //act
@@ -133,7 +133,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Year = "";
+        ci.year = "";
 
         cp.SetupCardData(ci);
         //act
@@ -182,7 +182,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GeUnknownCard();
-        ci.Number = ci.Number.substring(0,15);
+        ci.number = ci.number.substring(0,15);
         cp.SetupCardData(ci);
         //act
         cp.clickContinueButton();
@@ -198,7 +198,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Number = ci.Number.substring(0,15);
+        ci.number = ci.number.substring(0,15);
 
         cp.SetupCardData(ci);
         //act
@@ -215,7 +215,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Month = "1";
+        ci.month = "1";
         cp.SetupCardData(ci);
         //act
         cp.clickContinueButton();
@@ -231,7 +231,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Month = "1";
+        ci.month = "1";
 
         cp.SetupCardData(ci);
         //act
@@ -248,7 +248,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Year = "3";
+        ci.year = "3";
         cp.SetupCardData(ci);
         //act
         cp.clickContinueButton();
@@ -264,7 +264,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Year = "3";
+        ci.year = "3";
 
         cp.SetupCardData(ci);
         //act
@@ -281,8 +281,8 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Month = "05";
-        ci.Year = "23";
+        ci.month = "05";
+        ci.year = "23";
         cp.SetupCardData(ci);
         //act
         cp.clickContinueButton();
@@ -298,8 +298,8 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Month = "05";
-        ci.Year = "23";
+        ci.month = "05";
+        ci.year = "23";
 
         cp.SetupCardData(ci);
         //act
@@ -316,7 +316,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Owner = "ИВАНОВ ИВАН";
+        ci.owner = "ИВАНОВ ИВАН";
         cp.SetupCardData(ci);
         //act
         cp.clickContinueButton();
@@ -332,7 +332,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Owner = "ИВАНОВ ИВАН";
+        ci.owner = "ИВАНОВ ИВАН";
 
         cp.SetupCardData(ci);
         //act
@@ -349,7 +349,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Owner = "ИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАН";
+        ci.owner = "ИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАН";
         cp.SetupCardData(ci);
         //act
         cp.clickContinueButton();
@@ -365,7 +365,7 @@ public class TourAppTests {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
-        ci.Owner = "ИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАН";
+        ci.owner = "ИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАНИВАНОВИВАН";
 
         cp.SetupCardData(ci);
         //act

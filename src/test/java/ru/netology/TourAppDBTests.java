@@ -1,5 +1,6 @@
 package ru.netology;
 
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,14 +18,13 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 
 public class TourAppDBTests {
-    private DBAdapter dbAdapter = new DBAdapter();
 
     public TourAppDBTests() throws SQLException{
     }
 
     @Test
     //Действительная карта - покупка по карте - сумма
-    public void Scenario1_Card_Sum() throws SQLException {
+    public void Scenario1_Card_Sum() {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
@@ -36,14 +36,14 @@ public class TourAppDBTests {
         cp.checkSuccessNotification();
 
         //assert
-        PaymentEntity ent = dbAdapter.GetPaymentEntity();
+        PaymentEntity ent = DBAdapter.GetPaymentEntity();
 
         Assertions.assertEquals(45000, ent.amount);
     }
 
     @Test
     //Действительная карта - покупка по карте - статус
-    public void Scenario1_Card_Status() throws SQLException {
+    public void Scenario1_Card_Status()  {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
@@ -55,14 +55,14 @@ public class TourAppDBTests {
         cp.checkSuccessNotification();
 
         //assert
-        PaymentEntity ent = dbAdapter.GetPaymentEntity();
+        PaymentEntity ent = DBAdapter.GetPaymentEntity();
 
         Assertions.assertEquals("APPROVED", ent.status);
     }
 
     @Test
     //Действительная карта - покупка по карте - другие поля
-    public void Scenario1_Card_Other() throws SQLException {
+    public void Scenario1_Card_Other()  {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
@@ -74,7 +74,7 @@ public class TourAppDBTests {
         cp.checkSuccessNotification();
 
         //assert
-        PaymentEntity ent = dbAdapter.GetPaymentEntity();
+        PaymentEntity ent = DBAdapter.GetPaymentEntity();
 
         Assertions.assertNotEquals("",ent.id);
         Assertions.assertNotEquals("",ent.transaction_id);
@@ -83,7 +83,7 @@ public class TourAppDBTests {
 
     @Test
     //Действительная карта - покупка по карте - OrderEntity
-    public void Scenario1_Card_OrderEntity() throws SQLException {
+    public void Scenario1_Card_OrderEntity()  {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
@@ -95,7 +95,7 @@ public class TourAppDBTests {
         cp.checkSuccessNotification();
 
         //assert
-        OrderEntity ent = dbAdapter.GetOrderEntity();
+        OrderEntity ent = DBAdapter.GetOrderEntity();
 
         Assertions.assertNotEquals("",ent.id);
         Assertions.assertNotEquals("",ent.payment_id);
@@ -105,7 +105,7 @@ public class TourAppDBTests {
 
     @Test
     //Недействительная карта - покупка в кредит - статус
-    public void Scenario3_Credit_Status() throws SQLException {
+    public void Scenario3_Credit_Status()  {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GetDeclinedCard();
@@ -117,14 +117,14 @@ public class TourAppDBTests {
         cp.checkErrorNotification();
 
         //assert
-        CreditEntity ent = dbAdapter.GetCreditEntity();
+        CreditEntity ent = DBAdapter.GetCreditEntity();
 
         Assertions.assertEquals("DECLINED", ent.status);
     }
 
     @Test
     //Недействительная карта - покупка в кредит - другие поля
-    public void Scenario3_Credit_Other() throws SQLException {
+    public void Scenario3_Credit_Other() {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GetDeclinedCard();
@@ -136,7 +136,7 @@ public class TourAppDBTests {
         cp.checkErrorNotification();
 
         //assert
-        CreditEntity ent = dbAdapter.GetCreditEntity();
+        CreditEntity ent = DBAdapter.GetCreditEntity();
 
         Assertions.assertNotEquals("",ent.id);
         Assertions.assertNotEquals("",ent.bank_id);
@@ -145,7 +145,7 @@ public class TourAppDBTests {
 
     @Test
     //Недействительная карта - покупка в кредит - OrderEntity
-    public void Scenario3_Credit_OrderEntity() throws SQLException {
+    public void Scenario3_Credit_OrderEntity()  {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GetDeclinedCard();
@@ -157,7 +157,7 @@ public class TourAppDBTests {
         cp.checkErrorNotification();
 
         //assert
-        OrderEntity ent = dbAdapter.GetOrderEntity();
+        OrderEntity ent = DBAdapter.GetOrderEntity();
 
         Assertions.assertNotEquals("",ent.id);
         Assertions.assertNotEquals("",ent.payment_id);
@@ -166,7 +166,7 @@ public class TourAppDBTests {
 
     @Test
     //Недействительная карта - покупка по карте - сумма
-    public void Scenario2_Card_Sum() throws SQLException {
+    public void Scenario2_Card_Sum() {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetDeclinedCard();
@@ -178,14 +178,14 @@ public class TourAppDBTests {
         cp.checkErrorNotification();
 
         //assert
-        PaymentEntity ent = dbAdapter.GetPaymentEntity();
+        PaymentEntity ent = DBAdapter.GetPaymentEntity();
 
         Assertions.assertEquals(45000, ent.amount);
     }
 
     @Test
     //Недействительная карта - покупка по карте - статус
-    public void Scenario2_Card_Status() throws SQLException {
+    public void Scenario2_Card_Status()  {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetDeclinedCard();
@@ -197,14 +197,14 @@ public class TourAppDBTests {
         cp.checkErrorNotification();
 
         //assert
-        PaymentEntity ent = dbAdapter.GetPaymentEntity();
+        PaymentEntity ent = DBAdapter.GetPaymentEntity();
 
         Assertions.assertEquals("DECLINED", ent.status);
     }
 
     @Test
     //Недействительная карта - покупка по карте - сумма
-    public void Scenario2_Card_Other() throws SQLException {
+    public void Scenario2_Card_Other() {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetDeclinedCard();
@@ -216,7 +216,7 @@ public class TourAppDBTests {
         cp.checkErrorNotification();
 
         //assert
-        PaymentEntity ent = dbAdapter.GetPaymentEntity();
+        PaymentEntity ent = DBAdapter.GetPaymentEntity();
 
         Assertions.assertNotEquals("",ent.id);
         Assertions.assertNotEquals("",ent.transaction_id);
@@ -225,7 +225,7 @@ public class TourAppDBTests {
 
     @Test
     //Недействительная карта - покупка по карте - OrderEntity
-    public void Scenario2_Card_OrderEntity() throws SQLException {
+    public void Scenario2_Card_OrderEntity()  {
         MainPage mp = new MainPage();
         CardBuyFrame cp = mp.openCardBuyFrame();
         CardInfo ci = CardsGenerator.GetDeclinedCard();
@@ -237,7 +237,7 @@ public class TourAppDBTests {
         cp.checkErrorNotification();
 
         //assert
-        OrderEntity ent = dbAdapter.GetOrderEntity();
+        OrderEntity ent = DBAdapter.GetOrderEntity();
 
         Assertions.assertNotEquals("",ent.id);
         Assertions.assertNotEquals("",ent.payment_id);
@@ -246,7 +246,7 @@ public class TourAppDBTests {
 
     @Test
     //Действительная карта - покупка в кредит - статус
-    public void Scenario4_Credit_Status() throws SQLException {
+    public void Scenario4_Credit_Status()  {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
@@ -258,14 +258,14 @@ public class TourAppDBTests {
         cp.checkErrorNotification();
 
         //assert
-        CreditEntity ent = dbAdapter.GetCreditEntity();
+        CreditEntity ent = DBAdapter.GetCreditEntity();
 
         Assertions.assertEquals("APPROVED", ent.status);
     }
 
     @Test
     //Недействительная карта - покупка в кредит - другие поля
-    public void Scenario4_Credit_Other() throws SQLException {
+    public void Scenario4_Credit_Other()  {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
@@ -277,7 +277,7 @@ public class TourAppDBTests {
         cp.checkErrorNotification();
 
         //assert
-        CreditEntity ent = dbAdapter.GetCreditEntity();
+        CreditEntity ent = DBAdapter.GetCreditEntity();
 
         Assertions.assertNotEquals("",ent.id);
         Assertions.assertNotEquals("",ent.bank_id);
@@ -286,7 +286,7 @@ public class TourAppDBTests {
 
     @Test
     //действительная карта - покупка в кредит - OrderEntity
-    public void Scenario4_Credit_OrderEntity() throws SQLException {
+    public void Scenario4_Credit_OrderEntity()  {
         MainPage mp = new MainPage();
         CreditBuyFrame cp = mp.openCreditFrame();
         CardInfo ci = CardsGenerator.GetApprovedCard();
@@ -298,7 +298,7 @@ public class TourAppDBTests {
         cp.checkErrorNotification();
 
         //assert
-        OrderEntity ent = dbAdapter.GetOrderEntity();
+        OrderEntity ent = DBAdapter.GetOrderEntity();
 
         Assertions.assertNotEquals("",ent.id);
         Assertions.assertNotEquals("",ent.payment_id);
@@ -306,7 +306,7 @@ public class TourAppDBTests {
     }
 
     @BeforeEach
-    public void CleanUpDB() throws SQLException {
-        dbAdapter.CleanUp();
+    public void CleanUpDB()  {
+        DBAdapter.CleanUp();
     }
 }

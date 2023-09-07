@@ -14,22 +14,22 @@
 
 [summary.md](https://github.com/Kirilova2023/diplom_qa/blob/master/documents/summary.md)
 
+**Скриншот Allure**
+[!AllureScreen](/documents/Screenshoots/allure_screenshot.png)
+
 ## Запуск авто-тестов
 Для запуска необходимы следующие инструменты:
 * Git
 * Java Jre/Jdk 15
 * браузер Google Chrome
-* Node.js версии 18.17.0 
-* СУБД: Mysql 8.1 и/или Postgres 15.
+* Docker и Docker-compose
 
 
-1. Запустить "заглушку" платежного сервиса перейдя в папку gate-simulator и выполнив в терминале 1
+1. Запустить образы Docker перейдя в папку проекта и выполнив в терминале 1
    ````
-   npm start
+   docker-compose up
    ````
-2. Установить/запустить требуемую СУБД, создать пустую базу данных (например, app) 
-3. Создать пользователя с полными правами доступа к указанной СУБД либо, использовать системного пользователя root / postgres 
-4. Указать данные для подключения приложения в файле ../application/application.properties
+2. Указать данные для подключения приложения в файле ../application/application.properties
 
 Пример для PostgreSQL
 
@@ -47,39 +47,39 @@
     spring.datasource.password=1234
    ````
 
-5. Во втором терминале запустить приложение командой    
+3. Во втором терминале запустить приложение командой    
     ````
     java -jar application/aqa-shop.jar
     ````    
 
-6. В браузере Chrome открыть приложение по адресу указанному ниже и убедиться что приложение работает.
+4. В браузере Chrome открыть приложение по адресу указанному ниже и убедиться что приложение работает.
 
     ````
     http://localhost:8080/
     ````
 
-7. В build.gradle внести конфигурацию для используемой СУБД
+5. В build.gradle внести конфигурацию для используемой СУБД
 
     -  для MySql
 
     ````
     systemProperty 'db.url', System.getProperty('db.url','jdbc:mysql://localhost:3306/app?serverTimezone=Europe/Moscow')
-    systemProperty 'db.user', System.getProperty('db.user', 'root')
-    systemProperty 'db.pass', System.getProperty('db.pass', '1234')    
+    systemProperty 'db.user', System.getProperty('db.user', 'app')
+    systemProperty 'db.pass', System.getProperty('db.pass', 'app')    
     ````
 
     - для postgresql
 
     ````
     systemProperty 'db.url', System.getProperty('db.url','jdbc:postgresql://localhost:5432/app')
-    systemProperty 'db.user', System.getProperty('db.user', 'postgres')
-    systemProperty 'db.pass', System.getProperty('db.pass', '1')  
+    systemProperty 'db.user', System.getProperty('db.user', 'app')
+    systemProperty 'db.pass', System.getProperty('db.pass', 'app')  
     ````
-8. Запустить тесты командой 
+6. Запустить тесты командой 
    ````
    gradlew test
    ````
 
-9. По окончании тестирования, остановить выполнение gate-simulator и приложения путём нажатия Ctrl+C  
+7. По окончании тестирования, остановить выполнение контейнеров Docker и приложения путём нажатия Ctrl+C  
 
     

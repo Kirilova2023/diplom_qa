@@ -2,14 +2,14 @@ package ru.netology.Models;
 
 public class CardInfo {
 
-    public String Owner;
+    public String owner;
 
-    public String Number;
+    public String number;
 
-    public String Month;
+    public String month;
 
-    public String Year;
+    public String year;
 
-    public String CVV;
+    public String cvv;
 
 }

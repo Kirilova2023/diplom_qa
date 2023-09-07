@@ -5,6 +5,8 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.Models.CardInfo;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -22,11 +24,11 @@ public class BaseCardData {
     protected SelenideElement errorNotification = $(".notification_status_error");
 
     public void SetupCardData(CardInfo cardInfo){
-         cardNumberField.setValue(cardInfo.Number);
-         cardCvcField.setValue(cardInfo.CVV);
-         cardMonthField.setValue(cardInfo.Month);
-         cardYearField.setValue(cardInfo.Year);
-         cardOwnerField.setValue(cardInfo.Owner);
+         cardNumberField.setValue(cardInfo.number);
+         cardCvcField.setValue(cardInfo.cvv);
+         cardMonthField.setValue(cardInfo.month);
+         cardYearField.setValue(cardInfo.year);
+         cardOwnerField.setValue(cardInfo.owner);
     }
 
     public void clickContinueButton(){
@@ -35,12 +37,12 @@ public class BaseCardData {
 
     public void checkSuccessNotification() {
         //стандартное уведомление ждет 4 секунды, операция занимает дольше
-        successNotification.waitUntil(Condition.visible,60000);
+        successNotification.should(Condition.visible,  Duration.ofSeconds(15));
     }
 
     public void checkErrorNotification() {
         //стандартное уведомление ждет 4 секунды, операция занимает дольше
-        errorNotification.waitUntil (Condition.visible, 60000);
+        errorNotification.should (Condition.visible, Duration.ofSeconds(15));
     }
 
     public void checkCardNumberError() {
